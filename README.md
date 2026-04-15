@@ -1,26 +1,30 @@
-# Kanban Board - Frontend
-
-A modern Kanban-style task management application built using React JS. Users can create, edit, delete, and drag tasks across different columns like **To Do**, **In Progress**, and **Done**.
+# Password Reset Flow - Frontend
+A React-based frontend application that provides a secure and user-friendly password reset experience.
 
 ---
 
 ## Features
+- User Login & Registration UI
+- Forgot Password functionality
+- Token-based password reset
+- Reset password form with validation
+- API integration with backend
+- Responsive UI using Tailwind CSS / Bootstrap
 
-- Task Board with 3 columns (To Do, In Progress, Done)
-- Add new tasks
-- Edit existing tasks
-- Delete tasks
-- Drag and Drop (using dnd-kit)
-- Persistent storage using localStorage
-- Responsive UI using Tailwind CSS
-
----
 
 ## Tech Stack
-
 - React JS
-- Tailwind CSS
-- dnd-kit (Drag & Drop)
-- Context API (State Management)
-- localStorage (Persistence)
+- React Router DOM
+- Axios
+- Tailwind CSS / Bootstrap
+
+## Password Reset Flow (Frontend)
+User clicks Forgot Password
+Enters registered email
+API call sent to backend
+User receives reset link via email
+Link opens Reset Password page (/reset-password/:token)
+Token is verified via API
+User enters new password
+Password updated successfully
 
