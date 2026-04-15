@@ -1,22 +1,298 @@
 body {
-  background-color: #f8f9fa;
+  background-color: #1d1f20;
+  min-height: 100vh;
 }
 
 .container {
   max-width: 500px;
 }
 
+.welcome-page {
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #0f172a 50%, #1e293b 75%, #0f172a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.welcome-card {
+  max-width: 600px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 3.5rem 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 0 60px rgba(59, 130, 246, 0.1),
+    0 0 30px rgba(139, 92, 246, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: cardFadeIn 0.8s ease-out;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.logo-icon {
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.5));
+}
+
+.logo-text {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  margin: 0;
+}
+
+.welcome-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.welcome-subtitle {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.user-email {
+  color: #60a5fa;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+.welcome-description {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.welcome-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: white;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  border-color: rgba(96, 165, 250, 0.8);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.5),
+    0 10px 25px rgba(59, 130, 246, 0.2);
+  color: white;
+}
+
+.logout-btn:active {
+  transform: translateY(0px);
+}
+
 .card {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
   border: 1px solid rgba(0, 0, 0, 0.125);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
   background-color: #0056b3;
   border-color: #004085;
+  transform: translateY(-1px);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 123, 255, 0.2);
+}
+
+.register-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.register-btn:hover::before {
+  left: 100%;
+}
+
+.forget-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.forget-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.forget-btn:hover::before {
+  left: 100%;
+}
+
+.reset-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.reset-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.reset-btn:hover::before {
+  left: 100%;
+}
+
+.btn-outline-secondary {
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  transform: scale(1.01);
+}
+
+.input-group {
+  transition: all 0.3s ease;
+}
+
+.input-group:hover {
+  transform: translateY(-1px);
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+.alert {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
